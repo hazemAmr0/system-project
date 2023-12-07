@@ -1,28 +1,35 @@
 // App.js
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Container } from "@mui/material";
-import LoginComponent from "./components/LoginComponent";
-import RegisterComponent from "./components/RegisterComponent";
-import HomeComponent from "./components/HomeComponent"; // Import Home component
-import SearchComponent from "./components/SearchComponent";
-import CartComponent from "./components/CartComponent";
-import ProfileComponent from "./components/ProfileComponent";
+import { BrowserRouter , Route, Routes,  } from "react-router-dom";
+
+import Login from "./components/LoginRegister/Login/Login";
+import Register from "./components/LoginRegister/SignUp/Register";
+import HomeComponent from "./components/Home/HomeComponent"; // Import Home component
+
+
+
+import Category from "./components/Category/Category";
+import Header from "./components/Hreader/Header";
+import Newsletter from "./components/Footer/Newsletter/Newsletter";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <Router>
-      <Container>
+    <BrowserRouter>
+     
+        <Header />
         <Routes>
-          <Route path="/login" element={<LoginComponent />} />
-          <Route path="/register" element={<RegisterComponent />} />
-          <Route path="/search" element={<SearchComponent />} />
-          <Route path="/cart" element={<CartComponent />} />
-          <Route path="/profile" element={<ProfileComponent />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/Category" element={<Category />} />
+          <Route path="/register" element={<Register />} />
+         
+        
+         
           <Route path="/" element={<HomeComponent />} /> {/* Home route */}
         </Routes>
-      </Container>
-    </Router>
+        <Newsletter/>
+  <Footer/>
+    </BrowserRouter>
   );
 }
 
