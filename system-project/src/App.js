@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Container } from "@mui/material";
+import LoginComponent from "./components/LoginComponent";
+import RegisterComponent from "./components/RegisterComponent";
+import HomeComponent from "./components/HomeComponent"; // Import Home component
+import SearchComponent from "./components/SearchComponent";
+import CartComponent from "./components/CartComponent";
+import ProfileComponent from "./components/ProfileComponent";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Container>
+        <Routes>
+          <Route path="/login" element={<LoginComponent />} />
+          <Route path="/register" element={<RegisterComponent />} />
+          <Route path="/search" element={<SearchComponent />} />
+          <Route path="/cart" element={<CartComponent />} />
+          <Route path="/profile" element={<ProfileComponent />} />
+          <Route path="/" element={<HomeComponent />} /> {/* Home route */}
+        </Routes>
+      </Container>
+    </Router>
   );
 }
-//hello guys 
+
 export default App;
