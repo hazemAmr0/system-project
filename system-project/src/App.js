@@ -8,7 +8,7 @@ import HomeComponent from "./components/Home/HomeComponent"; // Import Home comp
 
 
 
-import Category from "./components/Category/Category";
+
 import Header from "./components/Hreader/Header";
 import Newsletter from "./components/Footer/Newsletter/Newsletter";
 import Footer from "./components/Footer/Footer";
@@ -20,7 +20,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/Category" element={<Category />} />
+          
           <Route path="/register" element={<Register />} />
          
         
