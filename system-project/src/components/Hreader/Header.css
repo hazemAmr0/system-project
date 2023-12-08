@@ -20,7 +20,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
+    height: 80px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -54,12 +54,12 @@ html {
     gap: 20px;
 }
 
-.right svg {
+.right .cart-icon {
     font-size: 20px;
     cursor: pointer;
 }
 
-.right svg:hover {
+.right .cart-icon:hover {
     opacity: 0.6;
 }
 
@@ -94,12 +94,12 @@ html {
         gap: 25px;
     }
 
-    .right svg {
+    .right .cart-icon {
         font-size: 24px;
+    }
 
-        &:hover {
-            opacity: 0.6;
-        }
+    .right .cart-icon:hover {
+        opacity: 0.6;
     }
 }
 
