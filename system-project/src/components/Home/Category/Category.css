@@ -25,7 +25,11 @@
     }
 
     .shop-category .category {
-        width: calc(25% - 15px);
+    background-color: black;
+        width: calc(30% - 10px);
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 10px;
         /* Adjust width for smaller images and more space */
     }
 }
@@ -38,6 +42,7 @@
     /* Maintain aspect ratio */
     display: block;
     transition: all ease 0.3s;
+    
 }
 
 .shop-category .category:hover img {

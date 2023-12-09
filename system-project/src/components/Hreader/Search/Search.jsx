@@ -49,7 +49,7 @@ const Search = ({ setShowSearch }) => {
             <Link to={`/SingleProduct/:id/${result._id}`} key={result._id}>
               <div className="search-result-item">
                 <div className="image-container">
-                  <img className="product-image" src={Img} alt="qq" />
+                  <img className="product-image" src={result.image} alt="qq" />
                 </div>
                 <div className="prod-details">
                   <span className="name">{result.name}</span>

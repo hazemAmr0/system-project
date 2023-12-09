@@ -1,0 +1,22 @@
+/* styles/Footer.css */
+
+footer {
+    background-color: #e7e1e1;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: #007bff;
+    /* Link color */
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

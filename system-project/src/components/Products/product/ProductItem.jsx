@@ -1,11 +1,11 @@
 import React from "react";
 import "./product.css";
 import Imgg from "../../../assets/banner-img.png";
-const ProductItem = ({ name, price, }) => {
+const ProductItem = ({ name, price,img }) => {
   return (
     <div className="product-card">
       <div className="thumbnail">
-        <img src={Imgg} alt={name} />
+        <img src={img} alt={name} />
       </div>
       <div className="prod-details">
         <span className="name">{name}</span>

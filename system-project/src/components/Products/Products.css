@@ -1,11 +1,15 @@
 /* Products.css */
+
 .products-container {
     margin: 50px 0;
+    display: flex;
+    flex-wrap:  wrap;
 
     @media only screen and (min-width: 768px) {
         margin: 75px 0;
     }
-
+}
+/* 
     .sec-heading {
         margin-bottom: 20px;
         font-size: 18px;
@@ -30,10 +34,13 @@
             }
         }
     }
+    */
 
     .products {
         display: flex;
         flex-wrap: wrap;
+        flex-direction: row;
+        width: fit-content;
         gap: 10px;
 
         @media only screen and (min-width: 768px) {
@@ -43,10 +50,50 @@
 
     .product-item {
         flex: 1;
-        /* Each product will take up equal width */
-        max-width: calc(33.3333% - 10px);
-        /* Adjust based on the number of products per row and gap */
+        /* max-width: calc(33.3333% - 10px); */
+        width: 250px;
+        justify-content: center;
+        /* flex-grow: ; */
         box-sizing: border-box;
-        /* Add other styles as needed */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: box-shadow 0.3s ease-in-out;
+        img{
+                width: 250 px ;
+        }
+        &:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-info {
+            padding: 10px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            font-size: 14px;
+            color: #050505;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #8e2de2;
+            color: white;
+            border: none;
+            border-radius: 0 0 8px 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+
+            &:hover {
+                background-color: #6b1bbf;
+            }
+        }
     }
-}
+

@@ -18,49 +18,44 @@ const Register = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
- const handleRegister = async () => {
-   try {
-     console.log("Attempting registration...");
+const handleRegister = async () => {
+  try {
+    // ... (previous code)
 
-     // Simple validation checks
-     if (!name || !email || !password || !confirmPassword) {
-       setError("Please fill in all fields.");
-       return;
-     }
+    const response = await axios.post(
+      "http://localhost:5000/api/auth/register",
+      {
+        username: name,
+        email: email,
+        password: password,
+      }
+    );
 
-     if (password !== confirmPassword) {
-       setError("Passwords do not match.");
-       return;
-     }
+    console.log("Registration successful:", response.data);
 
-     setError(""); // Clear any previous error messages
+    // Access user data from the response
+    const userData = response.data;
 
-     const response = await axios.post(
-       "http://localhost:5000/api/auth/register",
-       {
-         username: name,
-         email: email,
-         password: password,
-       }
-     );
+    // You can now use userData as needed, for example, logging the username
+    console.log("Registered user:", userData.username);
 
-     console.log("Registration successful:", response.data);
+    // You may want to do something with the response, like storing tokens or redirecting.
+    // For now, let's log a success message and navigate to the home page.
+    console.log("User successfully registered!");
+    navigate("/"); // Replace this with your desired redirection path
+  } catch (err) {
+    console.error("Error during registration:", err);
 
-     // You may want to do something with the response, like storing tokens or redirecting.
-     // For now, let's log a success message and navigate to the home page.
-     console.log("User successfully registered!");
-     navigate("/"); // Replace this with your desired redirection path
-   } catch (error) {
-     console.error("Error during registration:", error);
+    // Handle errors locally and update state
+    if (err.response) {
+      setError(err.response.data.message);
+    } else {
+      setError("An unexpected error occurred. Please try again.");
+    }
+  }
+};
 
-     // Customize the error message based on the error received from the server
-     if (error.response) {
-       setError(error.response.data.message);
-     } else {
-       setError("An unexpected error occurred. Please try again.");
-     }
-   }
- };
+
   return (
     <Grid container component="main" sx={{ height: "100vh" }}>
       <Grid

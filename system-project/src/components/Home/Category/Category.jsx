@@ -23,7 +23,7 @@ const Category = () => {
         {/* Map through the categories and display each category */}
         {categories.map((category, index) => (
           <div className="category" key={index}>
-            <img src={BannerImg} alt={category.name} />
+            <img src={category.image} alt={category.name} />
           </div>
         ))}
       </div>

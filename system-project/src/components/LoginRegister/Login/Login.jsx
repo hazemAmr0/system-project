@@ -30,8 +30,16 @@ const handleLogin = async () => {
   try {
     console.log("Attempting login...");
 
-    if (!email || !password) {
-      setError("Please enter both email and password.");
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    // Validate password length
+    if (!password || password.length < 6) {
+      setError("Password must be at least 6 characters long.");
       return;
     }
 
@@ -59,7 +67,6 @@ const handleLogin = async () => {
     }
   }
 };
- 
 
   return (
     <Grid

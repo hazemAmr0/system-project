@@ -7,6 +7,8 @@ import axios from 'axios';
 const SingleProduct = () => {
   const {id}=useParams();
   const [name , setname ] = useState();
+
+  const [image, setimage] = useState();
   const [description, setdescription] = useState();
    const [price, setprice] = useState();
      const [categories, setcategories] = useState();
@@ -16,6 +18,7 @@ const SingleProduct = () => {
   axios.get(
     "http://localhost:5000/api/products/products/"+id
   ).then((data)=>{
+  setimage(data.data.image);
 setname(data.data.name);
 setprice(data.data.price);
 setdescription(data.data.description);
@@ -35,7 +38,7 @@ setcategories(data.data.categories);
       <div className="layout">
         <div className="single-product-page">
           <div className="left">
-            <img src={Img} alt="ss" />
+            <img src={image} alt="" />
           </div>
           <div className="right">
             <span className="name">{name}</span>
@@ -57,11 +60,8 @@ setcategories(data.data.categories);
             <div className="info-item">
               <span className="text-hold">
                 Category:
-                {categories &&categories.map((e) => (
-                  <span>{e}</span>
-                ))}
+                {categories && categories.map((e) => <span>{e}</span>)}
               </span>
-            
             </div>
           </div>
         </div>

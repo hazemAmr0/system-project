@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ProductItem from "./product/ProductItem";
-import "./Products.css";
+import "./Products.css"; // Import the CSS file
 
 const ProductsItem = ({ innerPage }) => {
   const [products, setProducts] = useState([]);
@@ -23,10 +23,10 @@ const ProductsItem = ({ innerPage }) => {
     <div className="products-container">
       {!innerPage && <div className="sec-heading">Section heading</div>}
       <div className="products">
-        {/* Map through the products and display each ProductItem */}
         {products.map((product) => (
           <Link to={`/SingleProduct/${product._id}`} key={product._id}>
-            <ProductItem name={product.name} price={product.price} />
+            {/* Pass the product data as props to ProductItem component */}
+            <ProductItem name={product.name} price={product.price} img={product.image} />
           </Link>
         ))}
       </div>
