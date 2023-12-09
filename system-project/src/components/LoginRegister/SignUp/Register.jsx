@@ -7,6 +7,7 @@ import {
   RegisterStyledButton,
   
 } from "./Register_style";
+import axios from "axios";
 
 const Register = () => {
  
@@ -17,23 +18,49 @@ const Register = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleRegister = () => {
-    // Simple validation checks
-    if (!name || !email || !password || !confirmPassword) {
-      setError("Please fill in all fields.");
-      return;
-    }
+ const handleRegister = async () => {
+   try {
+     console.log("Attempting registration...");
 
-    if (password !== confirmPassword) {
-      setError("Passwords do not match.");
-      return;
-    }
+     // Simple validation checks
+     if (!name || !email || !password || !confirmPassword) {
+       setError("Please fill in all fields.");
+       return;
+     }
 
-    // Implement your registration logic here
-    // For simplicity, assume successful registration and redirect to home
-    setError("");
-    navigate("/");
-  };
+     if (password !== confirmPassword) {
+       setError("Passwords do not match.");
+       return;
+     }
+
+     setError(""); // Clear any previous error messages
+
+     const response = await axios.post(
+       "http://localhost:5000/api/auth/register",
+       {
+         username: name,
+         email: email,
+         password: password,
+       }
+     );
+
+     console.log("Registration successful:", response.data);
+
+     // You may want to do something with the response, like storing tokens or redirecting.
+     // For now, let's log a success message and navigate to the home page.
+     console.log("User successfully registered!");
+     navigate("/"); // Replace this with your desired redirection path
+   } catch (error) {
+     console.error("Error during registration:", error);
+
+     // Customize the error message based on the error received from the server
+     if (error.response) {
+       setError(error.response.data.message);
+     } else {
+       setError("An unexpected error occurred. Please try again.");
+     }
+   }
+ };
   return (
     <Grid container component="main" sx={{ height: "100vh" }}>
       <Grid

@@ -1,3 +1,4 @@
+/* Products.css */
 .products-container {
     margin: 50px 0;
 
@@ -32,11 +33,20 @@
 
     .products {
         display: flex;
-        flex-flow: wrap;
+        flex-wrap: wrap;
         gap: 10px;
 
         @media only screen and (min-width: 768px) {
             gap: 20px;
         }
+    }
+
+    .product-item {
+        flex: 1;
+        /* Each product will take up equal width */
+        max-width: calc(33.3333% - 10px);
+        /* Adjust based on the number of products per row and gap */
+        box-sizing: border-box;
+        /* Add other styles as needed */
     }
 }

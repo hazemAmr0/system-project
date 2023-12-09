@@ -135,7 +135,7 @@ html {
 }
 
 /* Sticky Header Animation */
-.main-header.sticky-header {
+{/*.main-header.sticky-header {
     background-color: #212121;
     color: white;
     position: sticky;
@@ -143,6 +143,7 @@ html {
     transform: translateY(-60px);
     animation: StickyHeader 0.3s ease forwards;
 }
+*/}
 
 @keyframes StickyHeader {
     0% {

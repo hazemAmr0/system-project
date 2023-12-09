@@ -4,11 +4,13 @@ import "./CartItem.css";
 import Img from "../../../assets/banner-img.png";
 const CartItem = () => {
   return (
+
     <div className="cart-products">
       <div className="cart-product">
-       <div className="img-container">
-        <img src={Img} alt="qq"/>
-       </div>
+        <div className="img-container">
+          <img src={Img} alt="qq" />
+
+        </div>
         <div className="prod-details">
           <span className="name">product name</span>
           <CloseIcon className="close-btn" />

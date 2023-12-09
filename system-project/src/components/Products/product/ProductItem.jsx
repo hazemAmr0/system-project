@@ -1,18 +1,18 @@
-import React from 'react'
-import './product.css';
-import BannerImg from "../../../assets/banner-img.png";
-const ProductItem = () => {
+import React from "react";
+import "./product.css";
+import Imgg from "../../../assets/banner-img.png";
+const ProductItem = ({ name, price, }) => {
   return (
     <div className="product-card">
       <div className="thumbnail">
-        <img src={BannerImg} alt="aa" />
+        <img src={Imgg} alt={name} />
       </div>
       <div className="prod-details">
-        <span className="name"> product name</span>
-        <span className="price"> $99</span>
+        <span className="name">{name}</span>
+        <span className="price">{`$${price}`}</span>
       </div>
     </div>
   );
 };
 
-export default ProductItem
+export default ProductItem;

@@ -16,6 +16,7 @@ import {
   LoginStyledButton,
   LoginStyles,
 } from  "./Login_style";
+import axios from "axios";
 
 const Login = () => {
   const classes = LoginStyles();
@@ -25,16 +26,39 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = () => {
+const handleLogin = async () => {
+  try {
+    console.log("Attempting login...");
+
     if (!email || !password) {
       setError("Please enter both email and password.");
       return;
     }
 
-    setError("");
-    navigate("/");
-  };
+    setError(""); // Clear any previous error messages
 
+    const response = await axios.post("http://localhost:5000/api/auth/login", {
+      email: email,
+      password: password,
+    });
+
+    console.log("Login successful:", response.data);
+
+    // You may want to do something with the response, like storing tokens or redirecting.
+    // For now, let's log a success message and navigate to the home page.
+    console.log("User successfully logged in!");
+    navigate("/"); // Replace this with your desired redirection path
+  } catch (error) {
+    console.error("Error during login:", error);
+
+    // Customize the error message based on the error received from the server
+    if (error.response) {
+      setError(error.response.data.message);
+    } else {
+      setError("An unexpected error occurred. Please try again.");
+    }
+  }
+};
  
 
   return (
