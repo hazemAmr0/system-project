@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Login from "./components/LoginRegister/Login/Login";
+import Register from "./components/LoginRegister/SignUp/Register";
+import HomeComponent from "./components/Home/HomeComponent";
+import Category from "./components/Category/Category"; // Import Category component
+import Header from "./components/Hreader/Header"
+import Footer from "./components/Footer/Footer";
+import ProductsItem from './components/Products/ProductsItem'
+import SingleProduct from "./components/SingleProduct/SingleProduct";
+import StoreInfo from "./components/about/StoreInfo";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/ProductsItem" element={<ProductsItem />} />
+        <Route path="//about" component={StoreInfo} />
+        <Route path="/SingleProduct/:id" element={<SingleProduct />} />
+        <Route path="/category" element={<Category />} />{" "}
+        {/* Add the category route */}
+        <Route path="/" element={<HomeComponent />} />
+      </Routes>
+
+      <Footer />
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+
